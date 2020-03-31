@@ -6,7 +6,7 @@ from adafruit_ads1x15.analog_in import AnalogIn
 import RPi.GPIO as GPIO
 
 
-GPIO.setup(GPIO.BCM) # GPIO number not pin number!!
+GPIO.setmode(GPIO.BCM) # GPIO number not pin number!!
 
 class GPIOReceiver:
     def __init__(self, name, pinNumber):
@@ -14,6 +14,7 @@ class GPIOReceiver:
         self.pinNumber = pinNumber
         self.__state = "blank"
         if self.pinNumber != -1:
+            GPIO.setup(self.pinNumber, GPIO.OUT)
             GPIO.output(self.pinNumber, GPIO.LOW)
 
     def action(self, action):

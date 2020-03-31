@@ -68,10 +68,9 @@ class AutoMode:
 
 
 class SmokeSensor(GPIOReceiver):
-    chan = None
-
     def __init(self, name, pinNumber):
         GPIOReceiver.__init__(self, name, pinNumber)
+        self.__initADC()
 
     def action(self, action):
         log.logInfo(self.name + " with PinNo: " + str(self.pinNumber))

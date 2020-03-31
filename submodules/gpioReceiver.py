@@ -70,18 +70,6 @@ class AutoMode:
 class SmokeSensor(GPIOReceiver):
     def __init(self, name, pinNumber):
         GPIOReceiver.__init__(self, name, pinNumber)
-        self.__initADC()
-
-    def action(self, action):
-        log.logInfo(self.name + " with PinNo: " + str(self.pinNumber))
-        if action == "init":
-            self.__initADC()
-        elif action == "getvalue":
-            self.getValue()
-        elif action == "getvoltage":
-            self.getVoltage()
-
-    def __initADC(self):
         # Create the I2C bus
         i2c = busio.I2C(board.SCL, board.SDA)
 
@@ -89,12 +77,20 @@ class SmokeSensor(GPIOReceiver):
         ads = ADS.ADS1115(i2c)
         # you can specify an I2C adress instead of the default 0x48
         # ads = ADS.ADS1115(i2c, address=0x49)
-
         # Create single-ended input on channel 0
         self.chan = AnalogIn(ads, ADS.P0)
-
         # Create differential input between channel 0 and 1
         # chan = AnalogIn(ads, ADS.P0, ADS.P1)
+
+
+    def action(self, action):
+        log.logInfo(self.name + " with PinNo: " + str(self.pinNumber))
+        if action == "getvalue":
+            self.getValue()
+        elif action == "getvoltage":
+            self.getVoltage()
+
+
 
     def getValue(self):
         return self.chan.value

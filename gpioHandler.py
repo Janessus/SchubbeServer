@@ -78,7 +78,7 @@ def help():
           "    ventilator\n" +
           "    light1\n" +
           "    light2\n" +
-          "    all\n" +
+          "    auto\n" +
           "\n" +
           "Actions are:\n" +
           "    on\n" +
@@ -86,5 +86,7 @@ def help():
           "    auto\n" +
           "\n" +
           "Examples:\n" +
-          "    gpio ventilator on" +
-          "    gpio light1 auto")
+          "    gpio ventilator on\n" +
+          "    gpio light1 auto\n" +
+          "    gpio auto on\n" +
+          "   gpio auto setupper 1234\n")

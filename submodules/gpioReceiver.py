@@ -23,6 +23,9 @@ class GPIOReceiver:
     def getState(self):
         return self.__state
 
+    def setState(self, state):
+        self.__state = state
+
 
 class AutoMode:
     def __init__(self, smokeSensor, ventilator):

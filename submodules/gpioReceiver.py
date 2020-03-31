@@ -90,6 +90,7 @@ class SmokeSensor(GPIOReceiver):
             self.getVoltage()
 
     def getValue(self) -> int:
+        print("Returning Value: " + str(self.chan.value))
         return self.chan.value
 
     def getVoltage(self):

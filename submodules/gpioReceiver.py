@@ -69,7 +69,7 @@ class AutoMode:
 
 class SmokeSensor(GPIOReceiver):
     def __init__(self, name, pinNumber):
-        super().__init__(self, name, pinNumber)
+        super().__init__(name, pinNumber)
         # Create the I2C bus
         i2c = busio.I2C(board.SCL, board.SDA)
 

@@ -38,7 +38,7 @@ class AutoMode:
     def setLowerBound(self, value):
         self.__lower = value
 
-    def getSTate(self):
+    def getState(self):
         return self.__state
 
     def setState(self, state):

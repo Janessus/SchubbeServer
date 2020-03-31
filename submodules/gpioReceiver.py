@@ -45,7 +45,7 @@ class AutoMode:
         self.__state = state
 
     def action(self, action):
-        log.logInfo(self.name + " with PinNo: " + str(self.pinNumber))
+        log.logInfo("Automode executing: " + str(action))
         if action == "on":
             self.setState("active")
         elif action == "off":

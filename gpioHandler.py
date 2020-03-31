@@ -8,18 +8,30 @@ import JPrinter as log
 automode = True
 log.logInfo("Starting GPIO Thread")
 # set initial states for gpio's
-light1 = sub.Light("light1", 16)
-light2 = sub.Light("light2", 20)
-ventilator = sub.Ventilator("ventilator", 21)
-smokeSensor = sub.SmokeSensor("smokesensor", -1)
-
-de_smoker = sub.AutoMode(smokeSensor, ventilator)
-
+global light1
+global light2
+global ventilator
+global smokeSensor
+global de_smoker
 bias = 0
 
 
 def init():
-    pass
+    global light1
+    global light2
+    global ventilator
+    global smokeSensor
+    global automode
+    global de_smoker
+
+    automode = True
+    log.logInfo("Starting GPIO Thread")
+    # set initial states for gpio's
+    light1 = sub.Light("light1", 16)
+    light2 = sub.Light("light2", 20)
+    ventilator = sub.Ventilator("ventilator", 21)
+    smokeSensor = sub.SmokeSensor("smokesensor", -1)
+    de_smoker = sub.AutoMode(smokeSensor, ventilator)
 
 
 def tearDown():

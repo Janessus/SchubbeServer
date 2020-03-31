@@ -8,9 +8,9 @@ import JPrinter as log
 automode = True
 log.logInfo("Starting GPIO Thread")
 # set initial states for gpio's
-light1 = sub.Light("light1", 0)
-light2 = sub.Light("light2", 1)
-ventilator = sub.Ventilator("ventilator", 2)
+light1 = sub.Light("light1", 16)
+light2 = sub.Light("light2", 20)
+ventilator = sub.Ventilator("ventilator", 21)
 smokeSensor = sub.SmokeSensor("smokesensor", -1)
 
 de_smoker = sub.AutoMode(smokeSensor, ventilator)

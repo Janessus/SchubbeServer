@@ -12,7 +12,7 @@ class GPIOReceiver:
     def __init__(self, name, pinNumber):
         self.name = name
         self.pinNumber = pinNumber
-        self.__state = "blank"
+        self.__state = "off"
         if self.pinNumber != -1:
             GPIO.setup(self.pinNumber, GPIO.OUT)
             GPIO.output(self.pinNumber, GPIO.LOW)
@@ -102,7 +102,6 @@ class SmokeSensor(GPIOReceiver):
 class Light(GPIOReceiver):
     def __init__(self, name, pinNumber):
         super().__init__(name, pinNumber)
-        self.state = "off"
 
     def action(self, action):
         log.logInfo(self.name + " with PinNo: " + str(self.pinNumber))
@@ -116,12 +115,12 @@ class Light(GPIOReceiver):
     def on(self):
         log.logInfo(self.name + " On")
         GPIO.output(self.pinNumber, GPIO.HIGH)
-        self.state = "on"
+        self.setState("on")
 
     def off(self):
         log.logInfo(self.name + " Off")
         GPIO.output(self.pinNumber, GPIO.LOW)
-        self.state = "off"
+        self.setState("off")
 
     def auto(self):
         log.logInfo(self.name + " auto")
@@ -132,7 +131,6 @@ class Light(GPIOReceiver):
 class Ventilator(GPIOReceiver):
     def __init__(self, name, pinNumber):
         super().__init__(name, pinNumber)
-        self.state = "off"
 
     def action(self, action):
         log.logInfo(self.name + " with PinNo: " + str(self.pinNumber))
@@ -146,12 +144,12 @@ class Ventilator(GPIOReceiver):
     def on(self):
         log.logInfo(self.name + " On")
         GPIO.output(self.pinNumber, GPIO.HIGH)
-        self.state = "on"
+        self.setState("on")
 
     def off(self):
         log.logInfo(self.name + " Off")
         GPIO.output(self.pinNumber, GPIO.LOW)
-        self.state = "off"
+        self.setState("off")
 
     def auto(self):
         log.logInfo(self.name + " auto")

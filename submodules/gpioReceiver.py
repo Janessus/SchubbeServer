@@ -69,7 +69,7 @@ class AutoMode:
 
 class SmokeSensor(GPIOReceiver):
     def __init__(self, name, pinNumber):
-        GPIOReceiver.__init__(self, name, pinNumber)
+        super().__init__(self, name, pinNumber)
         # Create the I2C bus
         i2c = busio.I2C(board.SCL, board.SDA)
 
@@ -97,6 +97,10 @@ class SmokeSensor(GPIOReceiver):
 
 
 class Light(GPIOReceiver):
+    def __init__(self, name, pinNumber):
+        super().__init__(name, pinNumber)
+        self.state = "off"
+
     def action(self, action):
         log.logInfo(self.name + " with PinNo: " + str(self.pinNumber))
         if action == "on":
@@ -123,6 +127,10 @@ class Light(GPIOReceiver):
 
 
 class Ventilator(GPIOReceiver):
+    def __init__(self, name, pinNumber):
+        super().__init__(name, pinNumber)
+        self.state = "off"
+
     def action(self, action):
         log.logInfo(self.name + " with PinNo: " + str(self.pinNumber))
         if action == "on":

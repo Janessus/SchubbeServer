@@ -61,7 +61,7 @@ class AutoMode:
     def autoMode(self):
         if self.getState() == "active":
             smokeLevel = self.smokeSensor.getValue()
-            print("Automode debug: smokeLevel=" + str(smokeLevel) + ", upper=" + str(self.__upper) + ", state=" + str(self.ventilator.getState()))
+            print("Automode debug: smokeLevel=" + str(smokeLevel) + ", upper=" + str(self.__upper) + ", state=" + str(self.ventilator.getState()) + "         \r", end="")
             if int(smokeLevel) > int(self.__upper) and self.ventilator.getState() == "off":
                 print("too much smoke detected")
                 self.ventilator.on()

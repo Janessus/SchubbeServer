@@ -56,7 +56,7 @@ def readCommand(gpioQueue):
                 log.logInfo("Message: " + message)
             else:
                 de_smoker.autoMode()
-                print(str(smokeSensor.getValue()))
+                print(str(smokeSensor.getValue()) + "        \r", end="")
                 time.sleep(.51) # for debugging .5 in normal operation .1
         except:
             log.logError("Exception in GpioHandler shutting down thread...\n" + traceback.format_exc())

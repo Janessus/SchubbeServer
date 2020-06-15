@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <title>Remote Labor Microcontroller</title>
+
+    <script>
+
+    </script>
+
+    <script>
+      function sendJSON(type, value){
+
+        // Creating a XHR object
+        let xhr = new XMLHttpRequest();
+
+        // open a connection
+        xhr.open("POST", "/input", true);
+
+        // Set the request header i.e. which type of content you are sending
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        // Converting JSON data to string
+        var data = JSON.stringify({ "userName": "Alice", "messageType": "input", "inputType": type, "portValue": value });
+
+        // Sending data with the request
+        xhr.send(data);
+      }
+      </script>
+
+    <style>
+
+      body {
+        background: #D0E4F5 url("https://evatronix.com/images/en/offer/printed-circuits-board/Evatronix_Printed_Circuits_Board_01_1920x1080.jpg") no-repeat local 0px 0px;
+        width: 100%;
+        text-align: center;
+        font-family: Impact, Charcoal, sans-serif;
+        color: white;
+        margin: 0px;
+      }
+
+      #stream {
+        height: 60%;
+
+      }
+
+      #wrapper{
+        margin-top: 0px;
+        background-color: rgba(0,0,0,0.6);
+        display: block;
+      }
+
+      .container{
+        background-color: rgba(0,0,0,0.7);
+        padding: 12px;
+      }
+
+      #inputContainer{
+        margin-top: 10px;
+      }
+
+      #uploadContainer{
+        margin-top: 10px;
+      }
+
+      .center {
+        margin: 0 auto;
+        width: 90%;
+        text-align: center;
+      }
+
+      #streamContainer{
+      }
+
+      .button {
+        margin-top: 2px;
+        position: relative;
+        background-color: #4287f5;
+        border: none;
+        font-size: 24px;
+        color: #FFFFFF;
+        padding: 16px;
+        width: 120px;
+        text-align: center;
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .button:after {
+        content: "";
+        background: #f1f1f1;
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px !important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.8s
+      }
+
+      .button:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s
+      }
+
+      .button:hover{
+        background-color: #1d3a69;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="center container" id="inputContainer">
+        <div id="buttons">
+          <h1>Buttons</h1>
+          <button class="button" name="buttons" value="1" onclick="sendJSON(this.name, this.value)">B0</button>
+          <button class="button" name="buttons" value="2" onclick="sendJSON(this.name, this.value)">B1</button>
+          <button class="button" name="buttons" value="4" onclick="sendJSON(this.name, this.value)">B2</button>
+          <button class="button" name="buttons" value="8" onclick="sendJSON(this.name, this.value)">B3</button>
+          <button class="button" name="buttons" value="16" onclick="sendJSON(this.name, this.value)">B4</button>
+          <button class="button" name="buttons" value="32" onclick="sendJSON(this.name, this.value)">B5</button>
+          <button class="button" name="buttons" value="64" onclick="sendJSON(this.name, this.value)">B6</button>
+          <button class="button" name="buttons" value="128" onclick="sendJSON(this.name, this.value)">B7</button>
+        </div>
+
+        <div id="switches">
+          <h1>Switches</h1>
+          <button class="button" name="switches" value="1" onclick="sendJSON(this.name, this.value)">S0</button>
+          <button class="button" name="switches" value="2" onclick="sendJSON(this.name, this.value)">S1</button>
+          <button class="button" name="switches" value="4" onclick="sendJSON(this.name, this.value)">S2</button>
+          <button class="button" name="switches" value="8" onclick="sendJSON(this.name, this.value)">S3</button>
+          <button class="button" name="switches" value="16" onclick="sendJSON(this.name, this.value)">S4</button>
+          <button class="button" name="switches" value="32" onclick="sendJSON(this.name, this.value)">S5</button>
+          <button class="button" name="switches" value="64" onclick="sendJSON(this.name, this.value)">S6</button>
+          <button class="button" name="switches" value="128" onclick="sendJSON(this.name, this.value)">S7</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

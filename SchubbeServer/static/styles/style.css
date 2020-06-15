@@ -1,0 +1,368 @@
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.my-green{
+    background-color: #75a928;
+}
+
+.submit-btn {
+    margin-top: 5px;
+}
+
+button {
+    border: 2px solid black !important;
+}
+
+
+@keyframes pulse{
+	0%{
+		opacity: 0;
+	}
+
+	50%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
+}
+
+@keyframes lightbeam{
+	0%{
+		left: -20%;
+		opacity: 0;
+	}
+
+	8%{
+		opacity: .1;
+	}
+
+	17%{
+		opacity: 1;
+	}
+
+	37%{
+		opacity: .3;
+	}
+
+	50%{
+		left: calc(100% - 20%);
+		opacity: 0;
+	}
+
+	100%{
+		left: calc(100% - 20%);
+		opacity: 0;
+	}
+}
+
+@keyframes rotate-z {
+	0%{
+		transform: scaleX(1);
+	}
+	13%{
+		transform: scaleX(0);
+	}
+	25% ,100%{
+		transform: scaleX(1);
+	}
+}
+
+header.raspi-logo{
+	height: 100vh;
+}
+
+
+nav > img{
+	animation-name: rotate-z;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(0.8, 0, 0.4, 1);
+}
+
+.smooth-margin{
+		margin-top: 50px;
+}
+
+.smooth-background {
+
+	background-color: rgba(0,0,0,0.4) !important;
+	backdrop-filter: blur(2px) !important;
+	box-shadow: 0px 0px 8px 16px rgba(0,0,0,0.4);
+}
+
+#small-inner-navbar > a
+{
+		font-size: 8px !important;
+		width: 19% !important;
+}
+
+#home > h1.w3-jumbo
+{
+	transition: font-size 1s;
+}
+
+#download-wrapper.w3-padding-64
+{
+	padding-top: 8px !important;
+}
+
+label.upload-label
+{
+	background-color: blue;
+	height: 30px;
+	width: 100px;
+}
+
+div.upload-div
+{
+	background-color: #222222;
+	height: 50px;
+	width: 200px;
+	text-align: center;
+	margin-bottom: 5px;
+	padding-top: 15px;
+	border-top: solid #75a928 2px;
+	border-bottom: solid #75a928 2px;
+
+	transition: border .5s, padding-top .5s;
+}
+
+div.upload-div:hover
+{
+	padding-top: 8px;
+	border-top: solid red 5px;
+	border-bottom: solid red 5px;
+}
+
+
+a.my-menu-effects
+{
+		transition: background-color .5s cubic-bezier(0, 0, 0.08, 0.96);
+}
+
+a.my-menu-effects:hover
+{
+
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: red;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+div#lightbeam
+{
+	animation-name: lightbeam;
+	animation-duration: 6s;
+	animation-delay: 2s;
+	animation-iteration-count: infinite;
+	opacity: 0;
+	position: relative;
+	left: 0;
+	width: 20%;
+	top: -10px;
+	height: 1px;
+	background-color: #75a928;
+	filter: blur(20px);
+	}
+
+	div#pulse
+	{
+		animation-name: pulse;
+		animation-duration: 6s;
+		animation-delay: 1s;
+		animation-iteration-count: infinite;
+		opacity: 0;
+		top: -10px;
+		height: 1px;
+		background-color: #75a928;
+		filter: blur(.5px);
+		width: calc(100%);
+		left: -32px;
+		margin-bottom: -8px;
+		}
+
+
+input[type="file"]{
+	width: 30% !important;
+}
+
+.text-input{
+	width: 30% !important;
+	margin-top: 15px
+}
+
+h2{
+	text-align: center;
+	padding: 15px;
+	margin-top: 12px !important;
+
+}
+
+div#margin-box
+{
+
+}
+
+div.itemlist{
+	margin: 2px;
+	border-radius: 4px;
+	width: inherit !important;
+	background-color: #222222 !important;
+	color: #75a928;
+	padding: 0px;
+	margin-left: 10% !important;
+	margin-right: 10% !important;
+	text-align: center;
+
+	z-index: 1;
+	transition: background-color .3s ease-in-out, margin-left .2s ease-in-out, margin-right .2s ease-in-out;
+}
+
+div.itemlist:hover{
+	position: relative;
+	background-color: #75a928 !important;
+
+	margin-left: 1px !important;
+	margin-right: 1px !important;
+	height: 110px !important;
+	margin-top: -15px;
+	margin-bottom: -15px;
+	z-index: 3;
+	box-shadow: 0px 0px 50px 8px #050505 !important;
+}
+
+div.itemlist-inner{
+	transition: color .3s ease-in-out;
+	height: inherit;
+
+}
+
+div.itemlist-inner:hover{
+	color: black !important;
+	padding-top: 1.35rem;
+}
+
+
+.download-link{
+	padding-top: 1.5rem;
+	height: inherit;
+	text-decoration: none;
+	font-size: 12pt;
+
+}
+
+div.filename-text{
+	padding-top: 1.35em;
+	padding-bottom: 1.35em;
+	margin-left: 30px;
+	margin-bottom: 0px;
+}
+
+.headline{
+	margin-bottom: 0px;
+	background-color: #cccccc !important;
+}
+
+.navbar{
+	border: solid 1px;
+	border-bottom: solid 8px #ffffff !important;
+}
+
+.nav-item{
+	font-weight: bold;
+}
+
+.fakeimg {
+	height: 200px;
+	background: #cccccc;
+}
+
+body{
+	/*background-color: #777777 !important;*/
+	background-image: url("/images/diagmonds_@2X.png") !important;
+	/*backdrop-filter: brightness(60%);*/
+	min-height: 582px !important;
+}
+
+#footer{
+	color: #ffffff;
+}
+
+.button{
+	width: 200px;
+	margin: 1px;
+	border: solid 1px #414141 !important;
+	box-shadow: 3px 3px 15px #313131 !important;
+}
+
+#portrait{
+	width: 320px !important;
+	height: 240px !important;
+}
+
+#bulb{
+	width: 260px !important;
+	height: 300px !important;
+	margin-left: -50px;
+}
+
+
+#bild{
+	width: 60% !important;
+}
+
+
+
+
+
+
+
+
+
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+
+
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0;}}
+@media only screen and (max-width: 520px) {#myNavbar { font-size: 8px !important;}}
+@media only screen and (max-width: 460px) {.headline-container > h1.w3-jumbo {font-size: 32px !important;}}
+@media only screen and (max-height: 558px) {nav > img {display: none;}}
+@media only screen and (max-height: 470px) {nav > a.my-menu-effects {display: flex !important; padding-left: 8px !important; height: 20vh !important;}}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<title>Schubbe Server</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!--<link rel="stylesheet" href="style.css"> -->
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+<script>
+      function sendJSON(type, value){
+
+        // Creating a XHR object
+        let xhr = new XMLHttpRequest();
+
+        // open a connection
+        xhr.open("POST", "/input", true);
+
+        // Set the request header i.e. which type of content you are sending
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        // Converting JSON data to string
+        var data = JSON.stringify({ "userName": "Alice", "messageType": "input", "inputType": type, "portValue": value });
+
+        // Sending data with the request
+        xhr.send(data);
+      }
+</script>
+
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  <img src="static/images/raspberry_icon.png" style="width:100%">
+  <a href="/" class="w3-bar-item w3-button w3-padding-large my-menu-effects w3-black">
+    <i class="material-icons" style="font-size:24px;">home</i>
+    <p>HOME</p>
+  </a>
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large my-menu-effects w3-hover-black">
+    <i class="material-icons" style="font-size:24px;">explore</i>
+    <p>ABOUT</p>
+  </a>
+
+    <a href="#settings" class="w3-bar-item w3-button w3-padding-large my-menu-effects w3-hover-black">
+    <i class="material-icons" style="font-size:24px;">settings</i>
+    <p>SETTINGS</p>
+  </a>
+
+    <a href="#control" class="w3-bar-item w3-button w3-padding-large my-menu-effects w3-hover-black">
+    <i class="material-icons" style="font-size:24px;">flight_takeoff</i>
+    <p>CONTROL</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div id="small-inner-navbar" class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="/" class="w3-bar-item w3-button">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+    <a href="#settings" class="w3-bar-item w3-button">SETTINGS</a>
+    <a href="#control" class="w3-bar-item w3-button">CONTROL</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-transparent raspi-logo" id="home">
+    <div class="headline-container">
+      <h1 class="w3-jumbo">Schubbe Server</h1>
+
+      <!-- Container for animation -->
+      <div id="pulse"></div>
+
+      <p>Controlling your Schubbe like a Boss!</p>
+    </div>
+    <img src="static/images/raspberry_icon.png" alt="" class="w3-image" width="992" height="1108">
+  </header>
+
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64 smooth-background smooth-margin" id="about">
+    <h2 class="w3-text-light-grey">WTF is this?!</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <p>This page is hosted by a RaspberryPi 3B+! I am currently using it as a
+      and as a test Web/MySql server, that hosts cool shit like this
+      page and remotely controlled <a href="#about">GPIO-Applications (currently not available)</a>.
+      The newest additions in terms of functionallity is a Git-Server running
+      on this Pi! (<span style="color:red">*spoiler-alert*</span> - GitTea incomming!)
+      And a <a href="download_dark.php">dropserver</a> for all kinds of files.
+    </p>
+  </div>
+
+  <div class="row w3-content w3-justify w3-text-grey w3-padding-64 smooth-background smooth-margin" id="settings">
+    <h2 class="w3-text-light-grey">Settings</h2>
+
+    <div class="column">
+
+      <div id="deSmoker">
+        <h3 class="w3-text-light-grey">De-Smoker</h3>
+
+        <h3 class="w3-text-light-grey">Upper Smoke Level</h3>
+        <input type="number" class="my-green w3-text-black w3-input"></input>
+
+        <h3 class="w3-text-light-grey">Lower Smoke Level</h3>
+        <input type="number" class="my-green w3-text-black	w3-input" value="Lower Smoke Level"></input>
+
+        <button class="w3-button w3-hover-blue my-green w3-text-black submit-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row w3-content w3-justify w3-text-grey w3-padding-64 smooth-background smooth-margin" id="control">
+    <h2 class="w3-text-light-grey">Control</h2>
+    <div class="column">
+      <div id="light1">
+        <h3 class="w3-text-light-grey">Light-1</h3>
+        <button class="column w3-button w3-hover-blue my-green w3-text-black	">ON</button>
+        <button class="column w3-button w3-hover-blue my-green w3-text-black	">OFF</button>
+      </div>
+      <div id = light2">
+        <h3 class="w3-text-light-grey">Light-2</h3>
+        <button class="column w3-button w3-hover-blue my-green w3-text-black	">ON</button>
+        <button class="column w3-button w3-hover-blue my-green w3-text-black	">OFF</button>
+      </div>
+      <div id="light3">
+        <h3 class="w3-text-light-grey">Light-3</h3>
+        <button class="column w3-button w3-hover-blue my-green w3-text-black	">ON</button>
+        <button class="column w3-button w3-hover-blue my-green w3-text-black	">OFF</button>
+      </div>
+    </div>
+    <div class="column">
+      <div id="ventilator">
+        <h3 class="w3-text-light-grey">Ventilator</h3>
+        <button class="column w3-button w3-hover-blue my-green w3-text-black	">ON</button>
+        <button class="column w3-button w3-hover-blue my-green w3-text-black	">OFF</button>
+      </div>
+      <div id="deSmoker">
+        <h3 class="w3-text-light-grey">De-Smoker</h3>
+        <button class="column w3-button w3-hover-blue my-green w3-text-black	">ON</button>
+        <button class="column w3-button w3-hover-blue my-green w3-text-black	">OFF</button>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<!-- END PAGE CONTENT -->
+</body>
+</html>

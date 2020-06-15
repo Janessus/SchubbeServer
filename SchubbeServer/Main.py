@@ -6,6 +6,7 @@ from threading import Thread
 import clientHandler
 import gpioHandler
 import scriptExecutor
+import API
 from globals import *
 
 
@@ -38,6 +39,9 @@ def main():
     executorQueue = JQueue()
     queues.append(DtoQueues("exec", executorQueue))
 
+    apiQueue = JQueue()
+    queues.append(DtoQueues("api", apiQueue))
+
     # GPIO Thread
     gpioHandlerThread = Thread(target=gpioHandler.readCommand, args=(gpioQueue,))
     gpioHandlerThread.start()
@@ -48,6 +52,10 @@ def main():
     executorHandlerThread.start()
     threads.append((executorHandlerThread, executorQueue))
 
+    #start API
+    API.API(host, queues)
+
+'''
     # get instance
     server_socket = socket.socket()
 
@@ -85,7 +93,6 @@ def main():
         finally:
             global run
             run = False
-
             for (t, q) in threads:
                 try:
                     t.join(2)
@@ -96,6 +103,7 @@ def main():
 
             print("Exiting...")
             sys.exit()
+'''
 
 
 if __name__ == '__main__':

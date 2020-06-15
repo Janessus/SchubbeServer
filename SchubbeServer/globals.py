@@ -34,6 +34,12 @@ class JQueue:
         return False
 
 
+class DtoAPI:
+    def __init__(self, addr, q):
+        self.addr = addr
+        self.q = q
+
+
 class DtoClientHandler:
     def __init__(self, con, q: JQueue, eq: JQueue):
         self.con = con

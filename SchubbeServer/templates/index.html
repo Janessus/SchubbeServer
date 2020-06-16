@@ -28,6 +28,25 @@
         // Sending data with the request
         xhr.send(data);
       }
+
+
+      function getFormData(action) {
+        let upper;
+        let lower;
+        if( action == "upper" ){
+          upper = document.getElementById("numUpper").value;
+          command = '/deSmoker setupper ' + upper;
+          console.log(upper);
+        }
+
+        if( action == "lower" ) {
+          lower = document.getElementById("numLower").value
+          command = '/gpio deSmoker setlower ' + lower;
+          console.log(lower);
+        }
+
+        sendJSON(command);
+      }
 </script>
 
 <body class="w3-black">
@@ -103,13 +122,12 @@
         <h3 class="w3-text-light-grey">De-Smoker</h3>
 
         <h3 class="w3-text-light-grey">Upper Smoke Level</h3>
-        <input type="number" class="my-green w3-text-black w3-input"></input>
-        <button class="w3-button w3-hover-blue my-green w3-text-black submit-btn">SET</button>
-
+        <input id="numUpper" type="number" class="my-green w3-text-black w3-input"></input>
+        <button class="w3-button w3-hover-blue my-green w3-text-black submit-btn" onclick="getFormData('upper')">SET</button>
 
         <h3 class="w3-text-light-grey">Lower Smoke Level</h3>
-        <input type="number" class="my-green w3-text-black	w3-input" value="Lower Smoke Level"></input>
-        <button class="w3-button w3-hover-blue my-green w3-text-black submit-btn">SET</button>
+        <input id="numLower" type="number" class="my-green w3-text-black	w3-input" value="Lower Smoke Level"></input>
+        <button class="w3-button w3-hover-blue my-green w3-text-black submit-btn" onclick="getFormData('lower')">SET</button>
       </div>
     </div>
   </div>

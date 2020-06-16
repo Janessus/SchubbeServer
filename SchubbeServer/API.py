@@ -34,11 +34,8 @@ def getInput():
         json = request.get_json()
         # user = json["user"]
         command = json["command"]
-
         commander.dispatchCommand(command, api.queues)
-        print("TESST")
-
-        # print("data = " + str(json))
+        print("\ndata = " + str(json))
     return "Posted"
 
 

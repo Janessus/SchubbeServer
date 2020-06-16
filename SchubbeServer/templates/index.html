@@ -35,13 +35,13 @@
         let lower;
         if( action == "upper" ){
           upper = document.getElementById("numUpper").value;
-          command = '/deSmoker setupper ' + upper;
+          command = '/gpio auto setupper ' + upper;
           console.log(upper);
         }
 
         if( action == "lower" ){
           lower = document.getElementById("numLower").value
-          command = '/gpio deSmoker setlower ' + lower;
+          command = '/gpio auto setlower ' + lower;
           console.log(lower);
         }
 

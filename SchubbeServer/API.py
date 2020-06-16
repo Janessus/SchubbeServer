@@ -32,7 +32,6 @@ def getInput():
     if request.is_json:
         global api
         json = request.get_json()
-        # user = json["user"]
         command = json["command"]
         commander.dispatchCommand(command, api.queues)
         print("\ndata = " + str(json))

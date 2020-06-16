@@ -35,9 +35,9 @@ class JQueue:
 
 
 class DtoAPI:
-    def __init__(self, addr, q):
+    def __init__(self, addr, queues: list):
         self.addr = addr
-        self.q = q
+        self.queues = queues
 
 
 class DtoClientHandler:

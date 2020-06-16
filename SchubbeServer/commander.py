@@ -1,6 +1,6 @@
 from globals import JQueue
 from globals import StopSigException
-from globals import DtoClientHandler
+from globals import DtoAPI
 
 
 def isCommand(cmd):
@@ -8,7 +8,7 @@ def isCommand(cmd):
         return True
 
 
-def dispatchCommand(commandString, dto: DtoClientHandler):
+def dispatchCommand(commandString, dto: list):
     print("Delegating...")
     if isCommand(commandString):
         cmd = str(commandString)
@@ -19,12 +19,16 @@ def dispatchCommand(commandString, dto: DtoClientHandler):
         # GPIO
         elif cmd.startswith("/gpio"):
             print("GPIO Command")
-            dto.gpioQueue.put(cmd[6:])
+            for q in dto:
+                if q.name == 'gpio':
+                    q.queue.put(cmd[6:])
 
         # EXECUTOR
         elif cmd.startswith("/exec"):
             print("Executor Command")
-            dto.executorQueue.put(cmd[6:])
+            for q in dto:
+                if q.name == 'exec':
+                    q.queue.put(cmd[6:])
 
     else:
         print("Not a valid Command")

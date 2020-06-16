@@ -53,7 +53,7 @@ def main():
     threads.append((executorHandlerThread, executorQueue))
 
     #start API
-    API.API(host, queues)
+    API.start(host, queues)
 
 '''
     # get instance

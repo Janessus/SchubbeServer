@@ -30,7 +30,7 @@
       }
 
 
-      function getFormData(action) {
+      function getFormData(action){
         let upper;
         let lower;
         if( action == "upper" ){
@@ -39,7 +39,7 @@
           console.log(upper);
         }
 
-        if( action == "lower" ) {
+        if( action == "lower" ){
           lower = document.getElementById("numLower").value
           command = '/gpio deSmoker setlower ' + lower;
           console.log(lower);

@@ -55,56 +55,6 @@ def main():
     #start API
     API.start(host, queues)
 
-'''
-    # get instance
-    server_socket = socket.socket()
-
-    # bind host address and port together
-    server_socket.bind((host, port))
-    try:
-        while True:
-            print("Waiting for connection...")
-            # configure how many client the server can listen simultaneously
-            server_socket.listen(maxClients)
-            conn, address = server_socket.accept()  # accept new connection
-            print("New connection: " + str(address[:]))
-
-            dtoDCH = DtoClientHandler(conn, gpioQueue, executorQueue)
-
-            # Client Handler Thread
-            t = Thread(target=clientHandler.clientHandler, args=(dtoDCH,))
-            t.start()
-            threads.append((t, dtoDCH))
-
-    except KeyboardInterrupt:
-        print("\nMain -- Terminated by user")
-    except:
-        print("An exception occurred" + traceback.format_exc())
-    finally:
-        print("Cleaning up...")
-        gpioQueue.put("bye")
-        executorQueue.put("bye")
-
-        try:
-            server_socket.close()
-            conn.close()  # close the connection
-        except UnboundLocalError:
-            print("UnboundLocalError")
-        finally:
-            global run
-            run = False
-            for (t, q) in threads:
-                try:
-                    t.join(2)
-                except RuntimeError:
-                    pass
-                except:
-                    print(traceback.format_exc())
-
-            print("Exiting...")
-            sys.exit()
-'''
-
 
 if __name__ == '__main__':
     main()

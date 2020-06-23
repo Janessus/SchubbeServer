@@ -13,7 +13,6 @@ class API:
         self.queues = queues
 
 
-
 def start(addr, queues):
     global api
     api = API(addr, queues)
@@ -36,6 +35,3 @@ def getInput():
         commander.dispatchCommand(command, api.queues)
         print("\ndata = " + str(json))
     return "Posted"
-
-
-
